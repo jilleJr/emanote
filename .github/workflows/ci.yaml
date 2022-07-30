@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - feature/stork-search-poc
   pull_request:
 jobs:
   build:
@@ -49,7 +50,7 @@ jobs:
   docker:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/feature/stork-search-poc'
     env:
       DOCKERTAG: latest
     steps:
@@ -69,7 +70,7 @@ jobs:
   website:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/feature/stork-search-poc'
     steps:
       - uses: actions/checkout@v2
       - name: Download docker image
@@ -89,6 +90,16 @@ jobs:
             --tmpfs /tmp \
             sridca/emanote emanote --layers /data --allow-broken-links gen /data/.ci/output
           cp -r ./docs/.ci .
+      - name: Generate search index
+        run: |
+          wget -O /opt/stork https://files.stork-search.net/releases/v1.5.0/stork-ubuntu-20-04
+          chmod +x /opt/stork
+          # Temporary solution until Emanote generates its own stork.toml
+          echo '[input]' > -/stork.toml
+          echo 'files = [' >> -/stork.toml
+          rg -g '!-*/' '<title>' -A1 | grep html- | sed 's/\(.*.html\)-  *\(.*\)/  {path = "\1", url="\1", title = """\2"""},/' >> stork.toml
+          echo ']' >> stork.toml
+          /opt/stork --input ./-/stork.toml --output ./-/stork.st
       - name: Deploy to website to gh-pages 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
