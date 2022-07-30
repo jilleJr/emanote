@@ -1,5 +1,6 @@
 template:
   urlStrategy: pretty
+  baseUrl: /emanote/
 
 page:
   siteTitle: Emanote
