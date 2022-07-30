@@ -40,7 +40,7 @@ jobs:
           echo "::set-output name=docker-img::${DOCKERIMG}"
       - name: Upload docker image tgz
         uses: actions/upload-artifact@v2
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/feature/stork-search-poc'
         with:
           name: docker-img
           retention-days: 1
@@ -50,7 +50,7 @@ jobs:
   docker:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/feature/stork-search-poc'
+    if: github.ref == 'refs/heads/master'
     env:
       DOCKERTAG: latest
     steps:
