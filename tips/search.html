@@ -5,15 +5,15 @@
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <title>
-    Synchronizing notes using Syncthing – Emanote
+    Search – Emanote
   </title>
   
     
-      <meta property='og:description' content='Syncthing is an open-source and superiorsuperior … because when using Dropbox, Android phones (unlike desktop computers) cannot have automatic full-sync of files on disk. Dropbox alternative that provides end-to-end and full-sync functionality on Windows, Mac, Linux and Android (but not iPhone).' />
+      <meta property='og:description' content='These are temporary private notes! TODO: Cleanup and write actual docs' />
       <meta property='og:site_name' content='Emanote' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
-      <meta property='og:title' content='Synchronizing notes using Syncthing' />
+      <meta property='og:title' content='Search' />
     
     
       <base href='/' />
@@ -480,6 +480,41 @@
     
       <!-- Variable bindings for this tree-->
   
+  
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
+        </path>
+      </svg>
+      
+  
+    <a class='font-bold text-blue-600 hover:underline truncate' title='Search' href='tips/search'>
+      Search
+    </a>
+    
+      
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+    
+  
+</div>
+    
+      <!-- Variable bindings for this tree-->
+  
     
   
 
@@ -500,8 +535,8 @@
       </svg>
     
   
-    <a class='hover:underline truncate' title='Search' href='tips/search'>
-      Search
+    <a class='hover:underline truncate' title='Synchronizing notes using Syncthing' href='tips/sync'>
+      Synchronizing notes using Syncthing
     </a>
     
       
@@ -512,41 +547,6 @@
   <!-- Node's children forest, displayed only on active trees
     TODO: Use <details> to toggle visibility?
   -->
-  
-</div>
-    
-      <!-- Variable bindings for this tree-->
-  
-  
-
-
-  
-
-
-<!-- Rendering of this tree -->
-<div class='pl-2'>
-  <!-- Node's rootLabel-->
-  <div class='flex items-center my-2 space-x-2 justify-left'>
-    
-    
-      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
-        </path>
-      </svg>
-      
-  
-    <a class='font-bold text-blue-600 hover:underline truncate' title='Synchronizing notes using Syncthing' href='tips/sync'>
-      Synchronizing notes using Syncthing
-    </a>
-    
-      
-  </div>
-
-  <!-- Node's children forest, displayed only on active trees
-    TODO: Use <details> to toggle visibility?
-  -->
-  
-    
   
 </div>
     
@@ -675,7 +675,7 @@
           <main class='px-4 py-4'>
             <h1 class='flex items-end justify-center mb-4 p-3 bg-blue-100 text-5xl font-extrabold text-black rounded'>
   <a class='z-40 tracking-tighter '>
-    Synchronizing notes using Syncthing
+    Search
   </a>
 </h1>
             <article class='overflow-auto'>
@@ -687,60 +687,22 @@
 </div>
   
     <p class='mb-3'>
-      <a href='https://docs.syncthing.net/' class='text-blue-600 hover:underline' target='_blank' rel='noopener'>Syncthing</a> is an open-source and superior
-    <!-- DoNotFormat -->
-    <!-- We use JavaScript because anchor links won't work if there is a <base> tag;
-         see https://stackoverflow.com/a/34765348 
-    -->
-    <sup class='px-0.5'><a class='text-blue-600 hover:underline' href='javascript:;' onclick="document.location.hash='#fn1';">1</a></sup>
-    <!-- DoNotFormat -->
-   Dropbox alternative that provides end-to-end and full-sync functionality on Windows, Mac, Linux and Android (but not iPhone).
+      <strong>These are temporary private notes!</strong> TODO: Cleanup and write actual docs
     </p>
-  <h2 id='mobile-editing' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Mobile editing</h2>
-    <p class='mb-3'>
-      On Android
-    <!-- DoNotFormat -->
-    <!-- We use JavaScript because anchor links won't work if there is a <base> tag;
-         see https://stackoverflow.com/a/34765348 
-    -->
-    <sup class='px-0.5'><a class='text-blue-600 hover:underline' href='javascript:;' onclick="document.location.hash='#fn2';">2</a></sup>
-    <!-- DoNotFormat -->
-   you can use the <a href='https://play.google.com/store/apps/details?id=md.obsidian&hl=en&gl=US' class='text-blue-600 hover:underline' target='_blank' rel='noopener'>Obsidian</a> app to edit your notes synced by Syncthing. <span class='bg-yellow-200 px-2 py-0.5 rounded-xl'>Changes made on desktop and mobile propagate both ways automatically.</span>
-    </p>
-  <h2 id='dealing-with-data-loss' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Dealing with data loss</h2>
-    <p class='mb-3'>
-      Data loss is not uncommon when working with syncthing. For this reason, it is recommended to <em>also</em> track your notebook in a Git repository. Assuming you commit often (via <a href='resources/vscode' class='text-blue-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>Visual Studio Code</a> extensions like <a href='https://marketplace.visualstudio.com/items?itemName=alfredbirk.git-add-commit-push' class='text-blue-600 hover:underline' target='_blank' rel='noopener'>this</a>), if any file goes missing you can always recover it from Git.
-    </p>
-  
-    <p class='mb-3'>
-      Git also acts as backup if you push your repository to a remote location (GitHub or a private server via SSH).
-    </p>
-  
-    <div title='Footnotes' class='pt-2 mt-8 space-y-1 text-gray-500 transform scale-x-90 border-t-2'>
-      <header class='font-semibold'>Footnotes</header>
-      
-        <div id='fn1'>
-          <header class='italic'>
-            1.
-          </header>
-          <div class='inline-block mb-2 ml-4'>
-            “superior” … because when using Dropbox, Android phones (unlike desktop computers) cannot have automatic full-sync of files on disk.
-          </div>
-        </div>
-      
-        <div id='fn2'>
-          <header class='italic'>
-            2.
-          </header>
-          <div class='inline-block mb-2 ml-4'>
-            Obsidian can also synchronize notes between iOS and macOS <a href='https://help.obsidian.md/Getting+started/Sync+your+notes+across+devices' class='text-blue-600 hover:underline' target='_blank' rel='noopener'>via iCloud</a>.
-          </div>
-        </div>
-      
-    </div>
-  
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='bash language-bash'>emanote gen result -L 'docs;default'
+
+cd result
+
+echo '[input]' &gt; stork.toml
+echo 'files = [' &gt;&gt; stork.toml
+rg -g '!-/' '&lt;title&gt;' -A1 | grep html- | sed 's/\(.*.html\)-  *\(.*\)/  {path = "\1", url="\1", title = """\2"""},/' &gt;&gt; stork.toml
+echo ']' &gt;&gt; stork.toml
+
+stork build --input stork.toml --output stork.st
+
+podman run --rm -it -v $PWD:/usr/share/nginx/html:Z -p 8080:80 nginx:alpine</code></pre></div>
   <div class='flex items-center justify-center mt-2'>
-  <a class='text-gray-300 hover:text-blue-600 text-sm' title='Edit this page on GitHub' href='https://github.com/srid/emanote/edit/master/docs/tips/sync.md'>
+  <a class='text-gray-300 hover:text-blue-600 text-sm' title='Edit this page on GitHub' href='https://github.com/srid/emanote/edit/master/docs/tips/search.md'>
     <svg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
       <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z'></path>
     </svg>
@@ -750,28 +712,6 @@
             <div class='flex flex-col lg:flex-row lg:space-x-2'>
               
               
-  <div class='flex-1 p-4 mt-8 bg-gray-100 rounded'>
-    <header class='mb-2 text-xl font-semibold text-gray-500'>Links to this page</header>
-    <ul class='space-y-1'>
-      
-        <li>
-          <a class='text-blue-600 mavenLinkBold hover:bg-blue-50' href='tips/wsl'>
-            Using on Windows
-          </a>
-          
-            <div class='mb-4 overflow-auto text-sm text-gray-500'>
-  
-    <div class='pl-2 mt-2 border-l-2 border-blue-200 hover:border-blue-500'>
-      <div><p><em>See <a href='tips/sync' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>Synchronizing notes using Syncthing</a></em></p></div>
-    </div>
-  
-</div>
-          
-        </li>
-      
-    </ul>
-  </div>
-
             </div>
             
   <section class='flex flex-wrap items-end justify-center my-4 space-x-2 space-y-2 font-mono text-sm'>
