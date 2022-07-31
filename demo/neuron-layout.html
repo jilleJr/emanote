@@ -29,6 +29,11 @@
 <link rel='stylesheet' href='https://files.stork-search.net/releases/v1.5.0/basic.css' />
 <!-- Stork-search styling base stylings -->
 <style>
+  .stork-wrapper.hidden {
+    /* undo the hidden styling, in effect enabling the search box */
+    display: block;
+  }
+
   .stork-wrapper .stork-output {
     margin-top: 0;
     border-radius: 0;
@@ -81,10 +86,16 @@
   .stork-wrapper .stork-output {
     position: absolute;
   }
+
+  .stork-wrapper > input {
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
 </style>
 
   
-  <link href='tailwind.css?instanceId=617e7340-6891-493d-bc5f-1f979b61f82a' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=2a1dfc41-5267-48f4-8954-9b26a69bccd8' rel='stylesheet' type='text/css' />
 
   <!-- Heist error element -->
   <style>
@@ -210,7 +221,7 @@
     </li>
   </ul>
 </nav>
-        <div class='stork-wrapper'>
+        <!-- the "hidden" is disabled via "js.stork-search" snippet --><div class='stork-wrapper hidden'>
 	<input data-stork='emanote-search' class='px-4 py-2 block w-full rounded-none border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none' placeholder='Search...' />
 	<div data-stork='emanote-search-output' class='stork-output'></div>
 </div>

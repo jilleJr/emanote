@@ -26,6 +26,11 @@
 <link rel='stylesheet' href='https://files.stork-search.net/releases/v1.5.0/basic.css' />
 <!-- Stork-search styling base stylings -->
 <style>
+  .stork-wrapper.hidden {
+    /* undo the hidden styling, in effect enabling the search box */
+    display: block;
+  }
+
   .stork-wrapper .stork-output {
     margin-top: 0;
     border-radius: 0;
@@ -75,7 +80,18 @@
 
 <!-- Stork-search styling, specific to Emanote's book layout -->
 <style>
+  .stork-wrapper > input {
+    border-top-color: rgba(209,213,219,var(--tw-border-opacity));
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+
   @media (min-width: 768px) {
+    .stork-wrapper > input {
+      border-top-color: transparent;
+      border-right-color: rgba(209,213,219,var(--tw-border-opacity));
+    }
+
     .stork-wrapper .stork-output {
       top: 0;
       left: calc(100% - 1px);
@@ -114,7 +130,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=617e7340-6891-493d-bc5f-1f979b61f82a' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=2a1dfc41-5267-48f4-8954-9b26a69bccd8' rel='stylesheet' type='text/css' />
 
   <!-- Heist error element -->
   <style>
@@ -213,7 +229,7 @@
       <div id='container' class='flex flex-nowrap flex-col md:flex-row bg-gray-50 md:mt-8 md:shadow-2xl md:mb-8'>
         <!-- Sidebar column -->
         <nav id='sidebar' class='flex-shrink hidden leading-relaxed md:block md:sticky md:top-0 md:h-full md:w-48 xl:w-64'>
-          <div class='stork-wrapper'>
+          <!-- the "hidden" is disabled via "js.stork-search" snippet --><div class='stork-wrapper hidden'>
 	<input data-stork='emanote-search' class='px-4 py-2 block w-full rounded-none border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none' placeholder='Search...' />
 	<div data-stork='emanote-search-output' class='stork-output'></div>
 </div>
