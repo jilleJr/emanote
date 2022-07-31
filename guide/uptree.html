@@ -23,9 +23,98 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js'></script>
 
+<link rel='stylesheet' href='https://files.stork-search.net/releases/v1.5.0/basic.css' />
+<!-- Stork-search styling base stylings -->
+<style>
+  .stork-wrapper .stork-output {
+    margin-top: 0;
+    border-radius: 0;
+    position: sticky;
+    border-color: rgba(99,102,241,var(--tw-border-opacity));
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+  }
+
+  .stork-wrapper .stork-message {
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    border-color: rgba(99,102,241,var(--tw-border-opacity));
+  }
+
+  .stork-wrapper .stork-close-button {
+    top: 0;
+    margin: 0.8em 0.6em;
+  }
+
+  .stork-wrapper .stork-close-button svg {
+    top: unset;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+<!-- Stork search scripts, styling added in more-head.tpl -->
+<script src='https://files.stork-search.net/releases/v1.5.0/stork.js'></script>
 
   
-  <link href='tailwind.css?instanceId=55f434af-0147-447a-bb5e-86d003b433fc' rel='stylesheet' type='text/css' />
+    <script data-emanote-base-url='/emanote/'>
+      (function() {
+        const indexName = 'emanote-search'; // used to match input[data-stork] attribute value
+        const baseUrl = document.currentScript.getAttribute('data-emanote-base-url') || '/';
+        const indexUrl = baseUrl + '-/stork.st';
+        if (document.readyState !== 'complete') {
+          window.addEventListener('load', function() {
+            stork.register(indexName, indexUrl);
+          });
+        } else {
+          stork.register(indexName, indexUrl, {forceOverwrite: true});
+        }
+      })();
+    </script>
+  
+
+
+<!-- Stork-search styling, specific to Emanote's book layout -->
+<style>
+  @media (min-width: 768px) {
+    .stork-wrapper .stork-output {
+      top: 0;
+      left: calc(100% - 1px);
+      position: absolute;
+      width: calc(768px - 12rem);
+    }
+
+    .stork-wrapper {
+      margin-right: -1px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .stork-wrapper .stork-output {
+      width: calc(1024px - 12rem);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .stork-wrapper .stork-output {
+      width: calc(1280px - 16rem);
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .stork-wrapper .stork-output {
+      width: calc(1536px - 16rem);
+    }
+  }
+
+  nav#sidebar {
+    z-index: 100;
+  }
+</style>
+
+
+
+  
+  <link href='tailwind.css?instanceId=cc1b2663-f0c0-4d65-abab-fc95b29ba861' rel='stylesheet' type='text/css' />
 
   <!-- Heist error element -->
   <style>
@@ -35,74 +124,40 @@
       font-family: monospace;
     }
   </style>
-  <!-- Stork search styling, scripts added in after-body.tpl --><link rel='stylesheet' href='https://files.stork-search.net/releases/v1.5.0/basic.css' />
+  <!-- What goes in this file will appear on near the end of <head>--><link rel='preload' href='_emanote-static/fonts/Maven_Pro/MavenPro-VariableFont_wght.ttf' as='font' type='font/ttf' crossorigin />
+
 <style>
-/* Applies changes to Stork search (https://stork-search.net/)
-   to make it fit in with Emanote's styling.
-*/
-
-.stork-wrapper .stork-output {
-  margin-top: 0;
-  border-radius: 0;
-  position: sticky;
-  border-color: rgba(99,102,241,var(--tw-border-opacity));
-  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
-}
-
-@media (min-width: 768px) {
-  .stork-wrapper .stork-output {
-    top: 0;
-    left: calc(100% - 1px);
-    position: absolute;
-    width: calc(768px - 12rem);
+  @font-face {
+    font-family: 'MavenPro';
+    /* FIXME: This ought to be: ${ema:emanoteStaticLayerUrl}/fonts/Maven_Pro/MavenPro-VariableFont_wght.ttf */
+    src: url(_emanote-static/fonts/Maven_Pro/MavenPro-VariableFont_wght.ttf) format("truetype");
+    font-display: swap;
   }
 
-  .stork-wrapper {
-    margin-right: -1px;
+  body {
+    font-family: 'MavenPro', sans-serif;
+    /* font-variation-settings: 'wght'300; */
   }
-}
 
-@media (min-width: 1024px) {
-  .stork-wrapper .stork-output {
-    width: calc(1024px - 12rem);
+  a.mavenLinkBold {
+    font-variation-settings: 'wght'500;
   }
-}
 
-@media (min-width: 1280px) {
-  .stork-wrapper .stork-output {
-    width: calc(1280px - 16rem);
+  strong {
+    font-variation-settings: 'wght'500;
   }
-}
 
-@media (min-width: 1536px) {
-  .stork-wrapper .stork-output {
-    width: calc(1536px - 16rem);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  .header-font {
+    font-family: 'MavenPro', sans-serif;
   }
-}
-
-.stork-wrapper .stork-message {
-  padding: 0.5rem 1rem;
-  border-radius: 0;
-  border-color: rgba(99,102,241,var(--tw-border-opacity));
-}
-
-.stork-wrapper .stork-close-button {
-  top: 0;
-  margin: 0.8em 0.6em;
-}
-
-.stork-wrapper .stork-close-button svg {
-  top: unset;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-nav#sidebar {
-  z-index: 100;
-}
 </style>
-
 
   
 </head>
@@ -552,12 +607,10 @@ nav#sidebar {
             
 
           </div>
-          
         </nav>
 
         <!-- Main body column -->
         <div class='flex-1 w-full overflow-x-auto bg-white'>
-          
           <main class='px-4 py-4'>
             <h1 class='flex items-end justify-center mb-4 p-3 bg-blue-100 text-5xl font-extrabold text-black rounded'>
   <a class='z-40 tracking-tighter '>
@@ -662,7 +715,6 @@ Here is the [[target-note]]#</code></pre></div><h2 id='folder-nodes' class='inli
 
             <!-- What goes in this file will at the very end of the main div -->
           </main>
-          
         </div>
       </div>
       <footer class='flex items-center justify-center mt-2 mb-8 space-x-4 text-center text-gray-800'>
@@ -705,24 +757,6 @@ Here is the [[target-note]]#</code></pre></div><h2 id='folder-nodes' class='inli
 </footer>
     </div>
   
-  <!-- Stork search scripts, styling added in more-head.tpl --><script src='https://files.stork-search.net/releases/v1.5.0/stork.js'></script>
-<script>
-(function () {
-	const indexName = 'emanote-search'; // used to match input[data-stork] attribute value
-	const baseUrl = document.querySelector('head > base').getAttribute('href') || '/';
-	const indexUrl = baseUrl + '-/stork.st';
-
-	if (document.readyState !== "complete") {
-		stork.register(indexName, indexUrl);
-	} else {
-		// In case of Ema hot-reload: only update index
-		stork.downloadIndex(indexName, indexUrl, {
-			forceOverwrite: true
-		});
-	}
-})();
-</script>
-
 </body>
 
 </html>
