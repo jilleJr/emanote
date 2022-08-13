@@ -90,20 +90,6 @@ jobs:
             --tmpfs /tmp \
             sridca/emanote emanote --layers /data --allow-broken-links gen /data/.ci/output
           cp -r ./docs/.ci .
-      - name: Generate search index
-        run: |
-          set -x
-          wget -O /opt/stork --no-verbose https://files.stork-search.net/releases/v1.5.0/stork-ubuntu-20-04
-          chmod +x /opt/stork
-          # Temporary solution until Emanote generates its own stork.toml
-          cd .ci/output
-          STORK_TOML=./-/stork.toml
-          STORK_INDEX=./-/stork.st
-          echo '[input]' > $STORK_TOML
-          echo 'files = [' >> $STORK_TOML
-          grep '<title>' -A1 -r --exclude-dir '-' --include '*.html' | grep html- | sed 's/\(.*.html\)-  *\(.*\)/  {path = "\1", url="\1", title = """\2"""},/' | tee -a $STORK_TOML
-          echo ']' >> $STORK_TOML
-          /opt/stork build --input $STORK_TOML --output $STORK_INDEX
       - name: Deploy to website to gh-pages 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
